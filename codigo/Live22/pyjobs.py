@@ -8,7 +8,7 @@ def get_last_page(url: str) -> str:
     pyjobs = get(url)
     pyjobs_page = bs(pyjobs.text, 'html.parser')
     links = pyjobs_page.find('ul', {'class': 'pagination'}).find_all('a')
-    return max([link.get('href') for link in links])
+    return max(link.get('href') for link in links)
 
 
 def trata_strs(string: str) -> str:
@@ -44,7 +44,7 @@ jobs = f'{base_url}jobs/'
 job_pages = f'{jobs}?page='
 
 last_page = int(get_last_page(jobs)[-1])
-urls = ['{}{}'.format(job_pages, n) for n in range(1, last_page+1)]
+urls = [f'{job_pages}{n}' for n in range(1, last_page+1)]
 
 for url in urls:
     pprint(list(gen_jobs(url)))

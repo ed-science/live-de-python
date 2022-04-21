@@ -43,7 +43,7 @@ def ajuste(w, x, d, y):
 def perceptron_fit(x, d):
     """ Executa o treinamento da rede """
     epoca = 0
-    w = [random.random() for i in range(3)]
+    w = [random.random() for _ in range(3)]
     print(w)
     while True:
         erro = False
@@ -57,7 +57,7 @@ def perceptron_fit(x, d):
                 erro = True
         epoca += 1
         if erro is False or epoca == 1000:
-            break 
+            break
     print(epoca)
     return w
 
@@ -81,12 +81,7 @@ def acuracia(y_teste, y_validado):
     que representa a porcentagem 
     de acertos da rede.
     """
-    total = 0
-    for i in range(len(y_teste)):
-        if y_teste[i] == y_validado[i]:
-            total += 1
-        else:
-            pass
+    total = sum(y_teste[i] == y_validado[i] for i in range(len(y_teste)))
     return total / len(y_validado)
 
 # Split Treino e teste

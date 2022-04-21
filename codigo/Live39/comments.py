@@ -12,5 +12,4 @@ def soma(x: int, y: int) -> int:
     necessidade de que existam outras funções.
 
     """
-    r = x + y
-    return r
+    return x + y

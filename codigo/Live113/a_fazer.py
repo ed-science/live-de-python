@@ -13,9 +13,7 @@ def listar_a_fazer(status: Optional[OpcoesDeStatus] = None):
     """
     View que retorna lista de itens a fazer
     """
-    if status is not None:
-        return a_fazer.filtrar(status=status)
-    return a_fazer.listar()
+    return a_fazer.listar() if status is None else a_fazer.filtrar(status=status)
 
 
 @router.post("/", response_model=ModeloDoItemResposta, status_code=201)

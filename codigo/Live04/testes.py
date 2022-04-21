@@ -7,15 +7,12 @@ def validate_cache(func, cache={}):
 
         chave = False
 
-        if y == None:
+        if y is None:
             y = cache['value']
             chave = True
 
         if isinstance(x, Number) and isinstance(y, Number):
-            if chave:
-                cache['value'] = func(self, y, x)
-            else:
-                cache['value'] = func(self, x, y)
+            cache['value'] = func(self, y, x) if chave else func(self, x, y)
             return cache['value']
 
         else:

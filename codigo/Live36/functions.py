@@ -10,10 +10,9 @@ def pretty_format(bs_list):
 
 
 def get_lirycs(base_url, musics_links, music):
-    return bs(get('{}{}'.format(base_url, musics_links[music])).text,
-              'lxml').find('article')
+    return bs(get(f'{base_url}{musics_links[music]}').text, 'lxml').find('article')
 
 
 def dict_to_json(path, _dict):
-    with open('{}.json'.format(path), 'w') as fp:
+    with open(f'{path}.json', 'w') as fp:
         dump(dict, fp, indent=2, ensure_ascii=False)

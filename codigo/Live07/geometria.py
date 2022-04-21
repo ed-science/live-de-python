@@ -8,8 +8,7 @@ class Ponto:
         self.y = y
 
     def __repr__(self):
-        return 'Ponto({}, {})'.format(self.x,
-                                      self.y)
+        return f'Ponto({self.x}, {self.y})'
 
 
 class linha:
@@ -26,8 +25,7 @@ class linha:
         return abs(self.ponto_2.y - self.ponto_1.y)
 
     def __repr__(self):
-        return 'Linha([{}, {}])'.format(self.ponto_1,
-                               self.ponto_2)
+        return f'Linha([{self.ponto_1}, {self.ponto_2}])'
 
 ponto_1 = Ponto(5, 2)
 ponto_2 = Ponto(1, 5)

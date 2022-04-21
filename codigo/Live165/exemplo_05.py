@@ -6,9 +6,7 @@ class Pedidos(BaseModel):
 
     @validator('ids', pre=True)
     def convert_ids(cls, v):
-        if isinstance(v, str):
-            return v.split(';')
-        return v
+        return v.split(';') if isinstance(v, str) else v
 
     # @validator('ids', each_item=True)
     # def convert_ids(cls, v):

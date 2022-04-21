@@ -8,7 +8,7 @@ def x():
         def z():
             def h():
                 def j():
-                    for x in range(10):
+                    for _ in range(10):
                         return 4
                 return j()
             return h()

@@ -19,10 +19,7 @@ def sum_(*vals):
     ASR - Troca o operador de atribuição.
     CRP - Troca as constantes
     """
-    result = 0  # aqui
-    for val in vals:
-        result += val  # Aqui
-    return result
+    return sum(vals)
 
 
 def is_number(val):
@@ -30,12 +27,8 @@ def is_number(val):
     COD - Deletar operadores sozinhos (not)
     COI - Insere um operador lógico
     """
-    if not isinstance(val, Number):
-        return False
-    return True
+    return isinstance(val, Number)
 
 
 def check_numbers(x, y):
-    if is_number(x) and is_number(y):
-        return True
-    return False
+    return bool(is_number(x) and is_number(y))

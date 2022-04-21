@@ -12,14 +12,12 @@ class SaveAnother:
 
     def __enter__(self):
         if exists(self.file):
-            file_name = '{}{}'.format(self.file,
-                                      next(self.counter))
+            file_name = f'{self.file}{next(self.counter)}'
             self.obj = open(file_name, self.mode)
             return self.obj
         self.obj = open(self.file, self.mode)
         return self.obj
 
     def __exit__(self, type, value, traceback):
-        print('Type: {} - Value: {} - Traceback: {}'.format(
-            type, value, traceback))
+        print(f'Type: {type} - Value: {value} - Traceback: {traceback}')
         self.obj.close()

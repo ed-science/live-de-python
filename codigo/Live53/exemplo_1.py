@@ -26,4 +26,4 @@ t.join()
 p.join()
 
 # print(q.qeue)
-print([q.get() for e in range(3)])
+print([q.get() for _ in range(3)])

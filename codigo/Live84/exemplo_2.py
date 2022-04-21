@@ -5,9 +5,7 @@ def soma(
     x: Union[str, float],
     y: Union[int, float]
 ) -> Optional[float]:
-    if isinstance(x, str):
-        return None
-    return x + y
+    return None if isinstance(x, str) else x + y
 
 
 # soma('x', 'y')  # error

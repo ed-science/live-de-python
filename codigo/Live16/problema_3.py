@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 for x in range(1, 11):
-    dir_ = 'pasta_{}'.format(x)
+    dir_ = f'pasta_{x}'
     if not os.path.exists(dir_):
         os.mkdir(dir_)
 

@@ -14,7 +14,7 @@ from functions import pretty_format, get_lirycs, dict_to_json
 
 base_url = 'https://www.letras.mus.br/'
 band = 'dead-fish/'
-html = get('{}{}'.format(base_url, band)).text
+html = get(f'{base_url}{band}').text
 
 page = bs(html, 'lxml')
 xpto = page.find('ul', {'class': 'cnt-list'})

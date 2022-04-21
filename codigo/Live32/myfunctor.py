@@ -15,7 +15,7 @@ class MyFunctor(Functor):
         return MyFunctor([function(x) for x in self._d])
 
     def __repr__(self):
-        return '{}'.format(self._d)
+        return f'{self._d}'
 
     def __mul__(self, functor):
         """ver em oslash ou pymonad."""

@@ -10,8 +10,7 @@ class AsyncYield(Awaitable):
         return self.value
 
     def __await__(self):
-        result = yield from self._loop.run_in_executor(None, self.do)
-        return result
+        return (yield from self._loop.run_in_executor(None, self.do))
 
 
 async def main():

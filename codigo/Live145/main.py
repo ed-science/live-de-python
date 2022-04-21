@@ -24,10 +24,10 @@ class MyBoxLayout(BoxLayout):
             self.propriedade = str(response)
 
         def on_error(req, response):
-            self.propriedade = 'Deu ruim! ' + str(response)
+            self.propriedade = f'Deu ruim! {str(response)}'
 
         def on_failure(req, response):
-            self.propriedade = 'Deu ruim2! ' + str(response)
+            self.propriedade = f'Deu ruim2! {str(response)}'
 
         self.request = UrlRequest(
             'https://pokeapi.co/api/v2/pokemon/ditto',

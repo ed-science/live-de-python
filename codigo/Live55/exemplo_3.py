@@ -3,8 +3,7 @@ import asyncio
 import time
 
 def primo(n: int) -> bool:
-    return not any(n//i == n/i
-                   for i in range(n-1, 1, -1))
+    return all(n//i != n/i for i in range(n-1, 1, -1))
 
 async def maior_primo_menor_que(n: int) -> None:
     print(f'Maior primo até {n}')

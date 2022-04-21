@@ -41,11 +41,7 @@ def post_artist():
         response.status = 400
         return {response.status: artista}
 
-    if insert_artist(artista['nome'].lower()):
-        response.status = 201  # Created
-    else:
-        response.status = 409  # Conflict
-
+    response.status = 201 if insert_artist(artista['nome'].lower()) else 409
     return dumps({response.status: artista})
 
 

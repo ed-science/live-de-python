@@ -21,9 +21,7 @@ def debug(debug=False):
             try:
                 func(*args)
             except Exception as error:
-                log.info('{} args:{} error:{}'.format(func.__name__,
-                                                      args,
-                                                      error))
+                log.info(f'{func.__name__} args:{args} error:{error}')
                 if debug:
                     for line in deque(open('test.log'), 10):
                         print(line)
@@ -34,7 +32,7 @@ def debug(debug=False):
 
 @debug(True)
 def div(x, y):
-    log.info('Entrei na função {}'.format(div.__name__))
+    log.info(f'Entrei na função {div.__name__}')
     return x / y
 
 

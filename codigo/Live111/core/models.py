@@ -31,8 +31,7 @@ class Sorvete(models.Model):
         """Deve ser retornado todos os sabores e o valor de venda."""
 
         sabores = ''.join(str(sabor) for sabor in self.sabores.all())
-        exibicao = f'{sabores} {str(self.preco_de_venda).replace(".", ",")}'
-        return exibicao
+        return f'{sabores} {str(self.preco_de_venda).replace(".", ",")}'
 
     def calcula_preco_de_venda(self):
         """

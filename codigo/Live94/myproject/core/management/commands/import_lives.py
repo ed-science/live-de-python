@@ -15,7 +15,7 @@ def csv_to_list(filename: str) -> list:
     '''
     with open(filename) as csv_file:
         reader = csv.DictReader(csv_file, delimiter=';')
-        csv_data = [line for line in reader]
+        csv_data = list(reader)
     return csv_data
 
 
