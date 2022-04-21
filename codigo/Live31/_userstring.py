@@ -6,5 +6,4 @@ class MyString(UserString):
         return iter(self.data)
 
     def next(self):
-        for x in self.data:
-            yield x
+        yield from self.data

@@ -9,7 +9,7 @@ class MinhaABC(ABC):
 
     @classmethod
     @abstractmethod
-    def meu_metodo_de_classe(self):
+    def meu_metodo_de_classe(cls):
         ...
 
     @staticmethod

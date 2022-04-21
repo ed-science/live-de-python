@@ -11,5 +11,4 @@ def fib(n):
 
 @lru_cache
 def fact(k):
-    if k < 2: return 1
-    return reduce(mul, range(2, int(k)+1))
+    return 1 if k < 2 else reduce(mul, range(2, int(k)+1))

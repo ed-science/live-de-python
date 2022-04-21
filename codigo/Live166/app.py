@@ -51,10 +51,9 @@ async def buscar_pessoa(nome='Felipe'):
         query = await s.execute(
             select(Pessoa).where(Pessoa.nome == nome)
         )
-        result = query.scalars().all()
         # return query.all()
         # breakpoint()
-        return result
+        return query.scalars().all()
 
 
 async def atualizar_nome(nome_antigo, nome_novo):

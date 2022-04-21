@@ -16,7 +16,7 @@ def index():
 @route('/<person>')
 def hello(person):
     """Exemplo de rota dinâmica."""
-    return 'Olá {}'.format(person)
+    return f'Olá {person}'
 
 
 run(port=8080)

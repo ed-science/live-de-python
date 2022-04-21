@@ -1,2 +1,2 @@
 def truncate(text):
-    return text[:80] + " [...]"
+    return f"{text[:80]} [...]"

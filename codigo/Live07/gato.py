@@ -7,9 +7,7 @@ class gatinho:
         self.rodado = 0
 
     def miar(self):
-        if self.mingal_com_fome:
-            return 'MIAAAUUUUUUUUUUUUU'
-        return 'Miau, Miau'
+        return 'MIAAAUUUUUUUUUUUUU' if self.mingal_com_fome else 'Miau, Miau'
 
     def andar(self):
         self.rodado += 1
@@ -18,11 +16,11 @@ class gatinho:
 
     @property
     def velho(self):
-        return True if self.idade > 3 else False
+        return self.idade > 3
 
     @property
     def cansado(self):
-        return True if self.rodado > 5 else False
+        return self.rodado > 5
 
 # mingau = gatinho('mingau', 'branco', 2)
 

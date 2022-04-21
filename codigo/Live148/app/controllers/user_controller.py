@@ -30,7 +30,7 @@ async def create(request: Request):
             {"msg": "usuario inserido com sucesso!"}, status_code=201
         )
     except Exception as e:
-        print(str(e))
+        print(e)
         return JSONResponse(
             {"msg": "não foi possível inserir o usuário"}, status_code=500
         )

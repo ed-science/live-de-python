@@ -12,4 +12,4 @@ class Fila:
         return self.lista.popleft()
 
     def __repr__(self):
-        return 'Fila [{}]'.format(', '.join(str(x) for x in self.lista))
+        return f"Fila [{', '.join((str(x) for x in self.lista))}]"

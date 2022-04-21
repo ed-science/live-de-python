@@ -21,7 +21,7 @@ class Cart(Base):
 
     @property
     def total(self):
-        return float(sum([product.value for product in self.products]))
+        return float(sum(product.value for product in self.products))
 
 
 class Product(Base):

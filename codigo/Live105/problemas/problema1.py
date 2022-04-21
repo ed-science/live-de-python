@@ -1,8 +1,6 @@
 def maior(x, y):
     '''problema 1.'''
-    if x < y:
-        return y
-    return x
+    return y if x < y else x
 
 
 def é_vogal(letra):

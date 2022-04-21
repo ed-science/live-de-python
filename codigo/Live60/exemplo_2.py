@@ -2,7 +2,7 @@ while True:
     try:
         nome = input('Digite seu nome: ')
         print(f'Olá {nome}')
-        0/0
+        1
     except KeyboardInterrupt:
         print('\nTudo Bemm já entendi, você não quer brincar')
         exit()

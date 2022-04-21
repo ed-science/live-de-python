@@ -2,11 +2,13 @@ from requests import get
 from shutil import copyfileobj
 from uteis import days
 
-days = list(map(lambda day: str(day) if len(str(day)) > 1 else '0' + str(day),
-                days))
+days = list(
+    map(lambda day: str(day) if len(str(day)) > 1 else f'0{str(day)}', days)
+)
+
 
 base_url = 'http://www.tjms.jus.br/cdje/downloadCaderno.do'
-full_url = '{}?dtDiario=DAY/10/2017&cdCaderno=3&tpDownload=D'.format(base_url)
+full_url = f'{base_url}?dtDiario=DAY/10/2017&cdCaderno=3&tpDownload=D'
 
 files_list = [full_url.replace('DAY', day) for day in days]
 
@@ -19,4 +21,4 @@ def download_file(name, url):
 
 for day, file_ in zip(days, files_list):
     print(file_)
-    download_file('{}.pdf'.format(day), file_)
+    download_file(f'{day}.pdf', file_)

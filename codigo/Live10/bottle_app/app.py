@@ -78,15 +78,17 @@ def login():
 @post('/login')
 @jinja2_view('generic.html')
 def post_login():
-    return dict(title='Cadastro',
-                path='Olá {}'.format(request.forms.get('username')),
-                css_file='/static/style.css',
-                lista=['Novidades', 'Amigos', 'Pessoas', 'Sair'])
+    return dict(
+        title='Cadastro',
+        path=f"Olá {request.forms.get('username')}",
+        css_file='/static/style.css',
+        lista=['Novidades', 'Amigos', 'Pessoas', 'Sair'],
+    )
 
 
 @get('/static/<path>')
 def static_files(path):
-    return static_file('/static/{}'.format(path), root='.')
+    return static_file(f'/static/{path}', root='.')
 
 
 run(port=8080, ip='192.168.0.106')

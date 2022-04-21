@@ -15,6 +15,6 @@ async def coro():
 
 
 loop = get_event_loop()
-grupo = gather(*[coro() for i in range(20)])
+grupo = gather(*[coro() for _ in range(20)])
 result = loop.run_until_complete(grupo)
 print(result)

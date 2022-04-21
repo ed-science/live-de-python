@@ -44,5 +44,5 @@ files = [download_file(name, url) for name, url in images_url.items()]
 
 time_elapsed = datetime.now() - start_time
 
-print('Tempo total (hh:mm:ss.ms) {}'.format(time_elapsed))
+print(f'Tempo total (hh:mm:ss.ms) {time_elapsed}')
 pprint(files)

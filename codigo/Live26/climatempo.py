@@ -17,16 +17,20 @@ class ClimatempoSpider(Spider):
     def parse_search(self, response):
         data = json.loads(response.body)
         city_id = data[0]["response"]["data"][0]["idcity"]
-        yield Request("https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/{}/".format(city_id),
-                      callback=self.parse)
+        yield Request(
+            f"https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/{city_id}/",
+            callback=self.parse,
+        )
 
     def parse(self, response):
         city_name = ' '.join(response.css('ul[itemprop="breadcrumb"] > li:last-child > a::text').extract_first().split())
 
         for day in response.css("#forecast-first-period .wrapper-forecast-day"):
-            item = {}
-            item["city"] = city_name
-            item["date"] = day.css(".title::attr(data-dia)").extract_first()
+            item = {
+                "city": city_name,
+                "date": day.css(".title::attr(data-dia)").extract_first(),
+            }
+
             item["max"] = day.css('.temperature-block p[arial-label="temperatura máxima"]::text').extract_first()
             item["min"] = day.css('.temperature-block p[arial-label="temperatura mínima"]::text').extract_first()
             yield item

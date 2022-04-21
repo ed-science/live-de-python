@@ -7,10 +7,11 @@ from httpx import get, post
 @given('que exista uma tarefa')
 def inserir_tarefa(context):
     feature_table = context.table['0']
-    tarefa = {}
-    tarefa['title'] = feature_table['nome']
-    tarefa['description'] = feature_table['descrição']
-    tarefa['done'] = feature_table['estado']
+    tarefa = {
+        'title': feature_table['nome'],
+        'description': feature_table['descrição'],
+        'done': feature_table['estado'],
+    }
 
     assert post(context.base_url, json=tarefa).status_code == 201
 
@@ -28,10 +29,12 @@ def checando_se_não_tenho_nenhuma_tarefa(context):
 @then('devo ter a seguinte tarefa para fazer')
 def checar_se_tarefa_esta_para_ser_feita(context):
     feature_table = context.table['0']
-    tarefa = {}
-    tarefa['title'] = feature_table['nome']
-    tarefa['description'] = feature_table['descrição']
-    tarefa['done'] = literal_eval(feature_table['estado'])
+    tarefa = {
+        'title': feature_table['nome'],
+        'description': feature_table['descrição'],
+        'done': literal_eval(feature_table['estado']),
+    }
+
     response = context.request.json()
     del response[0]['id']
 

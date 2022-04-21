@@ -15,9 +15,6 @@ def pipes():
 def grep(file, word, number, verbose):
     for ind, linha in enumerate(file, 1):
         if word in linha:
-            click.secho(
-                linha if not number else f'{ind} {linha}',
-                fg='red'
-            )
+            click.secho(f'{ind} {linha}' if number else linha, fg='red')
         elif verbose:
             click.echo(linha)

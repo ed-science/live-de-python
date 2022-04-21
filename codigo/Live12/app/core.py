@@ -22,10 +22,11 @@ metadata.create_all()
 
 
 def search_albums(artist):
-    artist_id = [x for x in select([artists.c.id]).
-                 where(artists.c.nome == artist.lower()).execute()]
-
-    if artist_id:
+    if artist_id := list(
+        select([artists.c.id])
+        .where(artists.c.nome == artist.lower())
+        .execute()
+    ):
         query = select([discs.c.id, discs.c.album,
                         discs.c.ano, discs.c.artista_id]).where(
                         discs.c.artista_id == artist_id[0][0]).execute()
@@ -40,16 +41,14 @@ def search_albums(artist):
 
 def id_artist(artist):
     searched = select([artists]).where(artists.c.nome == artist)
-    result = [_id for _id, artist in searched.execute()]
-    if result:
+    if result := [_id for _id, artist in searched.execute()]:
         return result[0]
 
-    else:
-        insert_artist(artist)
-        return id_artist(artist)
+    insert_artist(artist)
+    return id_artist(artist)
 
 def search_all_artists():
-    return {_id: artist for _id, artist in select([artists]).execute()}
+    return dict(select([artists]).execute())
 
 
 def insert_artist(artist):

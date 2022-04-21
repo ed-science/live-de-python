@@ -13,7 +13,6 @@ def decorador(argumentos_decorador):
             Executar a função
             """
             print(argumentos_funcao)
-            pass
         return execute_function
     return decorador_real
 

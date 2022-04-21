@@ -7,9 +7,7 @@ def em_evento_fechado(evento: str, senha: str):
 
 
 def em_evento_aberto(evento: str, senha: str):
-    if evento == 'fechar':
-        return 'fechado'
-    return 'aberto'
+    return 'fechado' if evento == 'fechar' else 'aberto'
 
 
 def alternador_de_estados(estado):

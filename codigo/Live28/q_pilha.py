@@ -12,4 +12,4 @@ class Pilha:
         return self.lista.pop()
 
     def __repr__(self):
-        return 'Pilha [{}]'.format(', '.join(str(x) for x in self.lista))
+        return f"Pilha [{', '.join((str(x) for x in self.lista))}]"

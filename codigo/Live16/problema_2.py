@@ -5,7 +5,7 @@ from pathlib import Path
 
 # Criando arquivos
 for el in range(1, 11):
-    Path('live_{}.txt'.format(el)).touch()
+    Path(f'live_{el}.txt').touch()
 
 l = [f for f in os.listdir('.') if f.startswith('live_')]
 
@@ -18,7 +18,7 @@ l = [f for f in os.listdir('.') if f.startswith('live_')]
 
 # Alterando os valores restantes
 for val, el in enumerate(sorted(l), 1):
-    shutil.move(el, 'live_{}'.format(val))
+    shutil.move(el, f'live_{val}')
 
 l = [f for f in os.listdir('.') if f.startswith('live_')]
 print(l)

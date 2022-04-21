@@ -20,8 +20,7 @@ def média():
 
 @corrotina
 def quem_delega():
-    result = yield from média()
-    yield result
+    yield (yield from média())
 
 
 coro = quem_delega()

@@ -27,8 +27,7 @@ async def write_file(session, url, name):
 async def fetch(session, url):
     async with session.get(url) as response:
         result = await response.json()
-        sprite_url = result['sprites']['front_default']
-        return sprite_url
+        return result['sprites']['front_default']
 
 async def main():
     async with ClientSession() as session:

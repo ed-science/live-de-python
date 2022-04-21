@@ -39,9 +39,7 @@ class Supermercado(Fila):
             raise NotImplementedError
 
     def sair(self, pos=0):
-        if self.pri:
-            return self.pri.pop(pos)
-        return self.it.pop(pos)
+        return self.pri.pop(pos) if self.pri else self.it.pop(pos)
 
     def __len__(self):
         return len(self.it) + len(self.pri)

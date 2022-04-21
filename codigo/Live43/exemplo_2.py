@@ -8,7 +8,7 @@ class PrintMock:
         stdout.write = self.log
 
     def log(self, arg):
-        self.file.write('{}'.format(arg))
+        self.file.write(f'{arg}')
 
     def __exit__(self, type, value, traceback):
         stdout.write = self.old_print

@@ -15,4 +15,4 @@ class Lista:
         return self.lista.remove(val)
 
     def __repr__(self):
-        return 'Lista [{}]'.format(', '.join(str(x) for x in self.lista))
+        return f"Lista [{', '.join((str(x) for x in self.lista))}]"

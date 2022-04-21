@@ -22,4 +22,4 @@ class MyList(MutableSequence):
         self._d.index(pos, val)
 
     def __repr__(self):
-        return '{}'.format(self._d)
+        return f'{self._d}'

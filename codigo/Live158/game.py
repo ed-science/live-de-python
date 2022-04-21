@@ -119,7 +119,7 @@ while True:
     if round % 120 == 0:
         if mortes < 20:
             grupo_inimigos.add(Virus())
-        for i in range(int(mortes / 20)):
+        for _ in range(int(mortes / 20)):
             grupo_inimigos.add(Virus())
 
     # Espaço dos eventos
@@ -127,9 +127,8 @@ while True:
         if evento.type == QUIT:
             pygame.quit()
 
-        if evento.type == KEYUP:
-            if evento.key == K_SPACE:
-                dunofausto.tacar_torradas()
+        if evento.type == KEYUP and evento.key == K_SPACE:
+            dunofausto.tacar_torradas()
 
     if groupcollide(grupo_torradas, grupo_inimigos, True, True):
         mortes += 1

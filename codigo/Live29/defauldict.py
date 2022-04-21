@@ -7,6 +7,6 @@ d = defaultdict(none)
 
 d['css']
 
-d.update({'css':00, 'html':'<body></body>'})
+d |= {'css':00, 'html':'<body></body>'}
 
 print(d)

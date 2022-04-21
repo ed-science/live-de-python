@@ -20,9 +20,7 @@ class EstadoFechado(Estado):
 
 class EstadoAberto(Estado):
     def em_evento(self, evento: str, senha: str):
-        if evento == 'fechar':
-            return EstadoFechado()
-        return self
+        return EstadoFechado() if evento == 'fechar' else self
 
 
 class Mala:
